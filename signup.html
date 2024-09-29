@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Cupid - Sign Up</title>
+    <link rel="stylesheet" href="css/signup.css">
+</head>
+<body>
+    <img src="assets/logo.png" alt="College Cupid Logo" class="logo">
+    <a href="index.html" class="home-button">Home</a>
+    <div class="container">
+        <h1>Sign Up for College Cupid</h1>
+        <form id="signupForm">
+            <div id="formStep1" class="question active">
+                <input type="text" id="first_name" name="first_name" placeholder="First Name" required>
+                <div class="hint">Aww, your first name will make our hearts flutter!</div>
+                <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
+                <div class="hint">Tell us your last name, so we can remember you forever!</div>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+                </select>
+                <div class="hint">We only accept biological genders only &#128529;</div>
+                <button type="button" onclick="nextStep(2)">Next</button>
+            </div>
+
+            <div id="formStep2" class="question">
+                <input type="date" id="dob" name="dob" required>
+                <div class="hint">When's your special day? We promise not to sing.</div>
+                <select id="college" name="college" required>
+                    <option value="" disabled selected>Select Your College</option>
+                    <option value="@snuchennai.edu.in">Shiv Nadar University Chennai</option>
+                    <option value="@ssn.edu.in">SSN College of Engineering</option>
+                    <option value="@iitm.ac.in">IIT Madras</option>
+                    <option value="@srmist.edu.in">SRM KTR</option>
+                    <option value="@hindustanuniv.ac.in">Hindustan Institute of Technology and Science</option>
+                    <option value="@vit.ac.in">VIT Chennai</option>
+                    <option value="@nitt.edu">NIT Trichy</option>
+                </select>
+                <div class="hint">P.S dw ;-; we won't send any mails, we promise!</div>
+                <input type="email" id="college_email" name="college_email" placeholder="College Email" required>
+                <div class="email-hint" id="emailHint">Example: user@yourcollege.edu</div>
+                <div class="error" id="emailError"></div>
+                <div class="hint">Make sure it's your college email—we want the real you!</div>
+                <button type="button" onclick="nextStep(3)">Next</button>
+            </div>
+
+            <div id="formStep3" class="question">
+                <input type="password" id="password" name="password" placeholder="Password (min. 8 characters)" minlength="8" required>
+                <div class="hint">Your secret password—keep it safe and sound! Must be at least 8 characters long.</div>
+                <input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="Confirm Password" required>
+                <div class="hint">Please confirm your password. We want to be sure!</div>
+                <label for="id_card">ID Card Upload</label>
+                <input type="file" id="id_card" name="id_card" accept=".jpeg, .png, .svg, .gif, .webp" required>
+                <div class="hint">Upload your ID card here—let’s make this official!</div>
+
+                <!-- Profile Pictures Upload -->
+                <label for="p1">Profile Picture 1</label>
+                <input type="file" id="p1" name="p1" accept=".jpeg, .png, .svg, .gif, .webp" required>
+                <label for="p2">Profile Picture 2</label>
+                <input type="file" id="p2" name="p2" accept=".jpeg, .png, .svg, .gif, .webp" required>
+                <label for="p3">Profile Picture 3</label>
+                <input type="file" id="p3" name="p3" accept=".jpeg, .png, .svg, .gif, .webp" required>
+                <label for="p4">Profile Picture 4</label>
+                <input type="file" id="p4" name="p4" accept=".jpeg, .png, .svg, .gif, .webp" required>
+                <label for="p5">Profile Picture 5</label>
+                <input type="file" id="p5" name="p5" accept=".jpeg, .png, .svg, .gif, .webp" required>
+                <div class="hint">Upload your profile pictures here—show us your best side!</div>
+
+                <button type="button" onclick="submitForm()">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div id="loadingSpinner" class="loading-spinner">
+        <div class="spinner"></div>
+    </div>
+    <script src="https://unpkg.com/pocketbase@0.19.0/dist/pocketbase.umd.js"></script>
+    <script src="js/signup.js"></script>
+</body>
+</html>

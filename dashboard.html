@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - College Cupid</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <header>
+        <button id="forYouBtn">For You</button>
+        <div class="user-info">
+            <span id="currentUser">Logged in as: <span id="username"></span></span>
+            <button id="logoutBtn">Logout</button>
+        </div>
+    </header>
+
+    <aside class="filters">
+        <h3>Filters</h3>
+        <label for="genderFilter">Gender:</label>
+        <select id="genderFilter">
+            <option value="">All</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Others">Others</option>
+        </select>
+
+        <label for="ageSlider">Age Range:</label>
+        <input type="range" id="ageSlider" min="18" max="99" value="30" step="1">
+        <span id="ageValue">Age: 30</span>
+
+        <label for="collegeFilter">College:</label>
+        <select id="collegeFilter">
+            <option value="">All Colleges</option>
+            <!-- Add college options dynamically -->
+        </select>
+    </aside>
+
+    <main>
+        <div id="userDisplay" class="user-display">
+            <button id="prevUserBtn">Previous</button>
+            <div class="user-profile">
+                <div class="photo-frame">
+                    <img id="userPhoto" src="" alt="User Photo">
+                    <button id="prevPhotoBtn">&lt;</button>
+                    <button id="nextPhotoBtn">&gt;</button>
+                </div>
+                <div class="user-details">
+                    <h2 id="userName">User Name</h2>
+                    <p id="userAge">Age: </p>
+                    <p id="userCollege">College: </p>
+                </div>
+            </div>
+            <button id="nextUserBtn">Next</button>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/pocketbase@0.19.0/dist/pocketbase.umd.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

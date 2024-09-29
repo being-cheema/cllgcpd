@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Cupid</title>
+    <link rel="icon" type="image/png" href="assets/logo.png"> <!-- Favicon -->
+    <style>
+        /* Base styling */
+        body {
+            background-color: #141414;
+            color: #8789FE;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            width: 300px;
+            height: auto;
+            margin-top: 50px;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin: 30px 0 40px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .button {
+            background-color: #8789FE;
+            color: #000;
+            padding: 15px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            border: 2px solid #8789FE;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #6a6bd4;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 104, 255, 0.5);
+        }
+
+        .content-section {
+            margin-bottom: 60px;
+            text-align: left;
+        }
+
+        .content-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .content-section p {
+            font-size: 20px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #D3D3D3;
+        }
+
+        .faq-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .faq-item {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .faq-item:hover {
+            background-color: #252525;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .faq-item p {
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .loading-spinner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.spinner {
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid #8789FE;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+        @media (max-width: 1024px) {
+            .logo {
+                width: 250px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .button-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .button {
+                padding: 12px 30px;
+                font-size: 18px;
+            }
+
+            .content-section h2 {
+                font-size: 28px;
+            }
+
+            .content-section p {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                width: 200px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .button {
+                padding: 10px 25px;
+                font-size: 16px;
+            }
+
+            .faq-item p {
+                font-size: 16px;
+            }
+        }
+
+        /* Countdown Timer Styles */
+        #countdown {
+            margin: 40px 0;
+        }
+
+        #timer {
+            font-size: 34px;
+            font-weight: bold;
+        }
+
+        #timer span {
+            display: inline-block;
+            min-width: 50px;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false">
+    <div class="container">
+        <img src="assets/logo.png" alt="College Cupid Logo" class="logo">
+        <h1>Welcome to College Cupid</h1>
+        <div class="button-container">
+            <a href="signup.html" class="button">Sign Up</a>
+            <a href="login.html" class="button">Login</a>
+        </div>
+        <div id="countdown">
+            <h1>Sign up Now & Get your matches in:</h1>
+            <div id="timer">
+                <span id="days"></span> days
+                <span id="hours"></span> hours
+                <span id="minutes"></span> minutes
+                <span id="seconds"></span> seconds
+            </div>
+        </div>
+        <div class="content-section">
+            <h2>Welcome to the Love Auditorium!</h2>
+            <p>Welcome to College Cupid, where the only thing sharper than your GPA is your wit, and your future is as bright as that one classroom projector that’s always too bright. We're here to turn those study group crushes into actual matches and to give you a break from overthinking your major… at least for a few hours.</p>
+            <p>Forget swiping left and right; we're all about reading between the lines (of your textbooks and love life). Whether you're looking for someone to debate Nietzsche or just share a coffee, College Cupid is your ticket to romance that's as deep as your late-night philosophy discussions.</p>
+        </div>
+        
+        <div class="faq-section">
+            <div class="faq-item">
+                <p><strong>Is this service only for college students?</strong><br>Absolutely! This isn’t just any dating app; it’s where the smart cookies come to mingle. College Cupid is exclusively for the academically inclined and those who want to fall for someone as brilliant as they are.</p>
+            </div>
+            
+            <div class="faq-item">
+                <p><strong>How do you ensure a safe dating environment?</strong><br>Your safety is our top priority. Every profile gets a thorough Cupid-Check before joining the ranks. Think of it as an academic integrity test, but for love.</p>
+            </div>
+            <div class="faq-item">
+                <p><strong>I can’t find my college in the list?</strong><br>No worries! Just send us a message. We're constantly adding new schools to our ever-growing love map. It’s like course registration, but way more exciting!</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <script>
+        // Countdown Timer Script
+        (function() {
+            const countDownDate = new Date("September 30, 2024 09:00:00 GMT+0530").getTime();
+
+            // Update the count down every 1 second
+            const countdownFunction = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = countDownDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("days").textContent = days;
+                document.getElementById("hours").textContent = hours;
+                document.getElementById("minutes").textContent = minutes;
+                document.getElementById("seconds").textContent = seconds;
+
+                if (distance < 0) {
+                    clearInterval(countdownFunction);
+                    document.getElementById("timer").textContent = "The countdown is over!";
+                }
+            }, 1000);
+        })();
+    </script>
+</body>
+</html>
